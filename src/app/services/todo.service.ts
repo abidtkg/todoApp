@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TodoService {
-  todosUrl:string =  "https://jsonplaceholder.typicode.com/todos";
+  todosUrl:string =  "https://jsengine.herokuapp.com/todo";
 
   constructor(
     private http: HttpClient
@@ -23,23 +23,23 @@ export class TodoService {
   // GET TODO ITEMS
   getTodos():Observable<Todo[]> {
     return this.http.get<Todo[]>
-      (`${this.todosUrl}/?_limit=5`);
+      (`${this.todosUrl}/list/0/10`);
   }
 
   // ADD TODO ITEM 
   addTodo(todo:Todo): Observable<Todo>{
-    return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
+    return this.http.post<Todo>(`${this.todosUrl}/new`, todo, httpOptions);
   }
 
   // TOGGLE COMPLETED (SERVER_THREAD)
   toggleCompletedTodo(todo: Todo): Observable<any>{
-    const url = `${this.todosUrl}/${todo.id}`;
+    const url = `${this.todosUrl}/update/${todo.id}`;
     return this.http.put(url, todo, httpOptions);
   }
 
   // DELETE TODO ITEM
   deleteTodo(todo: Todo): Observable<Todo> {
-    const url = `${this.todosUrl}/${todo.id}`;
+    const url = `${this.todosUrl}/delete/${todo.id}`;
     return this.http.delete<Todo>(url, httpOptions);
   }
 }
