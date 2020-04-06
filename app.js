@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 
+// ALLOW CORS ORIGIN
+app.use(cors());
+
 // PARSE APPLICATION/JSON
 app.use(bodyParser.json())
 
