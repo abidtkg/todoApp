@@ -20,4 +20,4 @@ mongoose.connection
     .once('open', () => console.log("MongoDB Connected!"))
     .on('error', (error) => console.log("error", error));
 
-app.listen(3000);
+app.listen(process.env.PORT);
