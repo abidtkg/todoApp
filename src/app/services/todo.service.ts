@@ -33,13 +33,13 @@ export class TodoService {
 
   // TOGGLE COMPLETED (SERVER_THREAD)
   toggleCompletedTodo(todo: Todo): Observable<any>{
-    const url = `${this.todosUrl}/update/${todo.id}`;
+    const url = `${this.todosUrl}/update/${todo._id}`;
     return this.http.put(url, todo, httpOptions);
   }
 
   // DELETE TODO ITEM
   deleteTodo(todo: Todo): Observable<Todo> {
-    const url = `${this.todosUrl}/delete/${todo.id}`;
+    const url = `${this.todosUrl}/delete/${todo._id}`;
     return this.http.delete<Todo>(url, httpOptions);
   }
 }
