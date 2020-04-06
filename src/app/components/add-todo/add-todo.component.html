@@ -1,0 +1,8 @@
+<form class="mt-1 form" (ngSubmit)="onSubmit()">
+    <div class="input-group mb-1">
+        <input type="text" class="form-control" placeholder="Add your todo..." name="title" [(ngModel)]="title" >
+        <div class="input-group-append">
+          <input class="btn btn-dark" type="submit" value="submit">
+        </div>
+    </div>
+</form>
