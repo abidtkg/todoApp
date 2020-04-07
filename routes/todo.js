@@ -28,8 +28,7 @@ router.post('/new', async (req, res) => {
 router.put('/update/:id', async (req, res) => {
     const todoId = req.params.id;
     const todoStatus = req.body.completed;
-    const switched = !todoStatus
-    await Todo.updateOne({_id: todoId}, {completed: switched});
+    await Todo.updateOne({_id: todoId}, {completed: todoStatus});
     const updatedTodoo = await Todo.findOne({_id: todoId});
     res.json(updatedTodoo);
 });
