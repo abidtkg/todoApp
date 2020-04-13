@@ -1,9 +1,10 @@
-<div [ngClass]="setClasses()">
-    <li class="list-group-item" style="padding: 15px;">
-        <input *ngIf="todo.completed == true" (change)="onToggle(todo)" type="checkbox" class="mr-2" checked>
-        <input *ngIf="todo.completed == false" (change)="onToggle(todo)" type="checkbox" class="mr-2">
-        <span>{{ todo.title }}</span>
-        <button (click)="onDelete(todo)" class="del btn btn-sm btn-danger">X</button>
-    </li>
+<div class="todo-list">
+    <div class="list-item">
+        <input type="checkbox"  *ngIf="todo.completed == true" (change)="onToggle(todo)" checked>
+        <input type="checkbox"  *ngIf="todo.completed == false" (change)="onToggle(todo)">
+        <p [ngClass]="setClasses()"> {{ todo.title }} </p>
+    </div>
+    <div class="todo-delete">
+        <button (click)="onDelete(todo)"> <img src="../../../assets/img/delete.svg" alt=""> </button>
+    </div>
 </div>
-

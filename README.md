@@ -4,6 +4,15 @@
     WEB: https://abidtkg.github.io/todoApp/
     API: 
      DB: MongoDB (Atlas)
-Query
 
-    > What is diffreence between interface and model?
+    Deployment
+
+    JSON: 
+    {
+    	"hosting": {
+    		"site": "mean-todoapp",
+    		"public": "public",
+    	}
+    }
+
+    CLI: firebase deploy --only hosting:mean-todoapp

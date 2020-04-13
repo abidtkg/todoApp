@@ -1,8 +1,4 @@
-<form class="mt-1 form" (ngSubmit)="onSubmit()">
-    <div class="input-group mb-1">
-        <input type="text" class="form-control" placeholder="Add your todo..." name="title" [(ngModel)]="title" >
-        <div class="input-group-append">
-          <input class="btn btn-dark" type="submit" value="submit">
-        </div>
-    </div>
+<form class="todo-input" (ngSubmit)="onSubmit()">
+  <input type="text" class="form-control" placeholder="Add your todo..." name="title" [(ngModel)]="title" >
+  <button class="btn btn-dark" type="submit" value="submit"> <img src="../../../assets/img/plus.svg" alt=""> </button>
 </form>
