@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "dist/todoApp",
+    "site": "mean-todoapp",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
