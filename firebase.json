@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/todoApp",
+    "public": "dist/todo-app",
     "site": "mean-todoapp",
     "ignore": [
       "firebase.json",

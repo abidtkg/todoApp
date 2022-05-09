@@ -2,12 +2,12 @@
 
     This is MEAN Stack ToDo Application
     WEB: https://abidtkg.github.io/todoApp/
-    API: 
+    API:
      DB: MongoDB (Atlas)
 
     Deployment
 
-    JSON: 
+    JSON:
     {
     	"hosting": {
     		"site": "mean-todoapp",
