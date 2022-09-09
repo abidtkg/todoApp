@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3"></div>
+        <mat-card class="col-xl-6 login">
+            <mat-card-header class="mb-2">
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>Login Account</mat-card-title>
+                <mat-card-subtitle> {{ appName }} </mat-card-subtitle>
+              </mat-card-header>
+            <div>
+                <div class="mb-3">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Email</mat-label>
+                        <input [(ngModel)]="inEmail" matInput type="text">
+                    </mat-form-field>
+                    <!-- <input class="form-control" placeholder="email" type="email" name="email" autocomplete="off"> -->
+                </div>
+                <div class="mb-3">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Password</mat-label>
+                        <input [(ngModel)]="inPassword" matInput type="password">
+                    </mat-form-field>
+                </div>
+                <mat-progress-bar *ngIf="isProcessing == true" class="mb-2" mode="indeterminate"></mat-progress-bar>
+
+                <!-- <button type="submit" class="btn"></button> -->
+                <button (click)="login()" mat-raised-button color="primary" style="margin-right: 5px;">Login</button>
+                <!-- <button (click)="forgetPassword()" mat-button color="primary">Forget Password?</button> -->
+            </div>
+        </mat-card>
+        <div class="col-xl-3"></div>
+    </div>
+</div>
