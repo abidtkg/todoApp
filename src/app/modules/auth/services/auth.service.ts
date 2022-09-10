@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError, retry, catchError } from 'rxjs';
 import { server } from 'src/app/app.config';
-import { ILoggedin } from '../interfaces/auth.interface';
+import { ILoggedin, IRegister, IRegisterResponse } from '../interfaces/auth.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,18 @@ export class AuthService {
       retry(1),
       catchError(this.errorHandeller)
     );
+  }
+
+  register(user: IRegister): Observable<IRegisterResponse> {
+    return this.http.post<IRegisterResponse>(`${this.server}/auth/create`, user)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandeller)
+    );
+  }
+
+  loggedIn(): Boolean {
+    return !!localStorage.getItem('token');
   }
 
   errorHandeller(error: HttpErrorResponse) {

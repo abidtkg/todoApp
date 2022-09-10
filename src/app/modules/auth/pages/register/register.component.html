@@ -1,1 +1,39 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3"></div>
+        <mat-card class="col-xl-6 login">
+            <mat-card-header class="mb-2">
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>Register Account</mat-card-title>
+                <mat-card-subtitle> {{ appName }} </mat-card-subtitle>
+              </mat-card-header>
+            <div>
+                <div class="mb-3">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Name</mat-label>
+                        <input [(ngModel)]="inName" matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="mb-3">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Email</mat-label>
+                        <input [(ngModel)]="inEmail" matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="mb-3">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Password</mat-label>
+                        <input [(ngModel)]="inPassword" matInput type="password">
+                    </mat-form-field>
+                </div>
+                <mat-progress-bar *ngIf="isProcessing == true" class="mb-2" mode="indeterminate"></mat-progress-bar>
+
+                <!-- <button type="submit" class="btn"></button> -->
+                <button (click)="register()" mat-raised-button color="primary" style="margin-right: 5px;">Register</button>
+                <a routerLink="/auth/login" mat-raised-button color="primary" style="margin-right: 5px;"> <mat-icon>arrow_back</mat-icon> Back to login</a>
+                <button mat-button color="primary">Need Help?</button>
+            </div>
+        </mat-card>
+        <div class="col-xl-3"></div>
+    </div>
+</div>

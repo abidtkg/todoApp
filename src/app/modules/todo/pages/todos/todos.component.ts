@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { TodoService } from '../../services/todo.service';
+import { appName } from 'src/app/app.config';
 
 @Component({
   selector: 'app-todos',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  constructor() { }
+  public appName = appName;
+
+  constructor(
+    private Todo: TodoService,
+    private Title: Title
+  ) { }
 
   ngOnInit(): void {
+    this.Title.setTitle(`Todos - ${this.appName}`);
   }
 
 }
