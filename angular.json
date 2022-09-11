@@ -73,7 +73,8 @@
               "browserTarget": "todo:build:production"
             },
             "development": {
-              "browserTarget": "todo:build:development"
+              "browserTarget": "todo:build:development",
+              "host": "0.0.0.0"
             }
           },
           "defaultConfiguration": "development"

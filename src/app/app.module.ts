@@ -19,12 +19,12 @@ import { AuthGuard } from './guards/auth.guard';
   imports: [
     AuthModule,
     TodoModule,
-    SharedModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    SharedModule
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3500}},

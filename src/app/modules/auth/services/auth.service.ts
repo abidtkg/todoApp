@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, throwError, retry, catchError } from 'rxjs';
 import { server } from 'src/app/app.config';
 import { ILoggedin, IRegister, IRegisterResponse } from '../interfaces/auth.interface';
@@ -12,7 +13,8 @@ export class AuthService {
   private server = server;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private Router: Router
   ) { }
 
   login(user: {email: string, password: string}): Observable<ILoggedin> {
@@ -33,6 +35,11 @@ export class AuthService {
 
   loggedIn(): Boolean {
     return !!localStorage.getItem('token');
+  }
+  
+  logOut(): void {
+    localStorage.removeItem('token');
+    this.Router.navigate(['/auth/login']);
   }
 
   errorHandeller(error: HttpErrorResponse) {

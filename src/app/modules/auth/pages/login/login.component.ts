@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.isProcessing = true;
     this.Auth.login({email: this.inEmail, password: this.inPassword})
     .subscribe({
       next: (data) => {
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
         this.Router.navigate(['/todo/todos']);
       },
       error: (error) => {
+        this.isProcessing = false;
         this.Snackbar.open(error.error.error, 'Close');
       }
     });

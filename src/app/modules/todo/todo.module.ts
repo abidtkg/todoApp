@@ -9,11 +9,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { SharedModule } from '../shared/shared.module';
+import { CompletedtodosComponent } from './pages/completedtodos/completedtodos.component';
+import { PendingtodosComponent } from './pages/pendingtodos/pendingtodos.component';
 
 
 @NgModule({
   declarations: [
-    TodosComponent
+    TodosComponent,
+    CompletedtodosComponent,
+    PendingtodosComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +28,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatButtonModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    SharedModule
   ],
   providers: [
     TodoService
