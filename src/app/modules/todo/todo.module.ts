@@ -13,6 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { SharedModule } from '../shared/shared.module';
 import { CompletedtodosComponent } from './pages/completedtodos/completedtodos.component';
 import { PendingtodosComponent } from './pages/pendingtodos/pendingtodos.component';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { PendingtodosComponent } from './pages/pendingtodos/pendingtodos.compone
     FormsModule,
     MatIconModule,
     MatMenuModule,
-    SharedModule
+    SharedModule,
+    MatListModule
   ],
   providers: [
     TodoService

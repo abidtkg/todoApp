@@ -1,3 +1,9 @@
 <app-nav>
-  content
+  <div class="d-flex justify-content-center">
+    <mat-list role="list" style="max-width: 600px;">
+      <mat-list-item *ngFor="let todo of todos" role="listitem">
+        {{ todo.title }}
+      </mat-list-item>
+    </mat-list>
+  </div>
 </app-nav>

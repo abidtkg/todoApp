@@ -8,12 +8,12 @@
             This product developed by 
             <a mat-button color="primary" href="https://abidhasan.web.app/" target="_blank">ABID HASAN <mat-icon>open_in_new</mat-icon> </a>
         </p>
-        <div>
+        <div *ngIf="isLoggedIn == false">
             <a routerLink="/auth/login" mat-raised-button color="primary" style="margin-right: 10px;">Login</a>
             <a routerLink="/auth/register" mat-raised-button color="primary">Regiser Account</a>
         </div>
-        <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a routerLink="/notes" class="btn btn-primary btn-lg px-4 gap-3">My Notes</a>
-        </div> -->
+        <div *ngIf="isLoggedIn == true">
+            <a routerLink="/auth/register" mat-raised-button color="primary">My Todos <mat-icon>arrow_right_alt</mat-icon> </a>
+        </div>
     </div>
 </div>
