@@ -15,6 +15,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AboutComponent } from './pages/about/about.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { MatCardModule } from '@angular/material/card';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -23,7 +24,8 @@ import { MatCardModule } from '@angular/material/card';
     NotfoundComponent,
     NavComponent,
     ConfirmationComponent,
-    AboutComponent
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

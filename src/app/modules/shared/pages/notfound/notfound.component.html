@@ -1,1 +1,13 @@
-<p>notfound works!</p>
+<div class="px-4 py-5  text-center">
+    <img class="d-block mx-auto mb-4" src="assets/logo.png" alt="" style="height: 100px; width: auto;">
+    <h1 class="display-5 fw-bold"> {{ appName }} </h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+            PAGE YOU ARE LOOKING FOR WAS NOT FOUND!
+        </p>
+        <div>
+            <a routerLink="/" mat-raised-button color="primary" style="margin-right: 10px;"> <mat-icon>home</mat-icon> Home</a>
+            <a *ngIf="isLoggedIn == true" routerLink="/todo/todos" mat-raised-button color="primary"> <mat-icon>content_paste</mat-icon> Todos</a>
+        </div>
+    </div>
+</div>
