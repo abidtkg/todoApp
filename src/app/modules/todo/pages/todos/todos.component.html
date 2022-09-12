@@ -1,9 +1,57 @@
 <app-nav>
-  <div class="d-flex justify-content-center">
-    <mat-list role="list" style="max-width: 600px;">
-      <mat-list-item *ngFor="let todo of todos" role="listitem">
-        {{ todo.title }}
-      </mat-list-item>
-    </mat-list>
+  <div class="d-flex justify-content-center mt-4">
+    <table mat-table [dataSource]="todos" class="mat-elevation-z8" style="max-width: 600px;">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary">{{element.title}} </button>
+          
+        </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.completed == true" class="badge rounded-pill text-bg-success">Done</span>
+          <span *ngIf="element.completed == false" class="badge rounded-pill text-bg-dark">Pending</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>check</mat-icon>
+              <span>Mark as done</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="tableCols"></tr>
+      <tr mat-row *matRowDef="let row; columns: tableCols;"></tr>
+    </table>
+    
+    
   </div>
 </app-nav>

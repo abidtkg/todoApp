@@ -16,6 +16,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './pages/home/home.component';
+import { HelperService } from './services/helper.service';
 
 
 
@@ -46,6 +47,9 @@ import { HomeComponent } from './pages/home/home.component';
     NotfoundComponent,
     NavComponent,
     ConfirmationComponent
+  ],
+  providers: [
+    HelperService
   ]
 })
 export class SharedModule { }
