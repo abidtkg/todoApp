@@ -15,13 +15,21 @@ import { CompletedtodosComponent } from './pages/completedtodos/completedtodos.c
 import { PendingtodosComponent } from './pages/pendingtodos/pendingtodos.component';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { CreateTodoComponent } from './shared/create-todo/create-todo.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
   declarations: [
     TodosComponent,
     CompletedtodosComponent,
-    PendingtodosComponent
+    PendingtodosComponent,
+    CreateTodoComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +42,14 @@ import { MatTableModule } from '@angular/material/table';
     MatMenuModule,
     SharedModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatProgressBarModule
   ],
   providers: [
     TodoService

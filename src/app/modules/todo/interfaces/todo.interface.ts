@@ -6,3 +6,8 @@ export interface ITodo {
     completed: boolean;
     date: string;
 }
+
+export interface ICreateTodo {
+    title: string;
+    description: string;
+}

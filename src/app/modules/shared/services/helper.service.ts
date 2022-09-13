@@ -13,4 +13,9 @@ export class HelperService {
     { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'});
     return stringDate;
   }
+
+  removeOne(id: string, data: any){
+    const filterdData = data.filter((t: { _id: any; }) => t._id !== id);
+    return filterdData;
+  }
 }

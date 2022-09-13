@@ -4,6 +4,10 @@ import { TodoService } from '../../services/todo.service';
 import { appName } from 'src/app/app.config';
 import { ITodo } from '../../interfaces/todo.interface';
 import { HelperService } from 'src/app/modules/shared/services/helper.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTodoComponent } from '../../shared/create-todo/create-todo.component';
+import { ConfirmationComponent } from 'src/app/modules/shared/dialogs/confirmation/confirmation.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 export interface PeriodicElement {
@@ -42,7 +46,9 @@ export class TodosComponent implements OnInit {
   constructor(
     private Todo: TodoService,
     private Title: Title,
-    private Helper: HelperService
+    private Helper: HelperService,
+    private Dialog: MatDialog,
+    private Snackbar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -62,4 +68,37 @@ export class TodosComponent implements OnInit {
     });
   }
 
+  create(){
+    const dialogRef = this.Dialog.open(CreateTodoComponent, {
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result == true) {
+        this.loadTodos()
+      }
+    })
+  }
+
+  delete(todo: ITodo) {
+    const dialogRef = this.Dialog.open(ConfirmationComponent, {
+      disableClose: true,
+      data: {message: 'Are you sure you want to delete the item?'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result == true) {
+        this.Todo.delete(todo)
+        .subscribe({
+          next: (data) => {
+            this.Snackbar.open('Item Deleted!', 'Close');
+            this.todos = this.Helper.removeOne(todo._id, this.todos);
+          },
+          error: (error) => {
+            this.Snackbar.open(error.error.error, 'Close');
+          }
+        });
+      }
+    });
+  }
 }

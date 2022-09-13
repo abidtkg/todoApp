@@ -1,6 +1,13 @@
 <app-nav>
-  <div class="d-flex justify-content-center mt-4">
-    <table mat-table [dataSource]="todos" class="mat-elevation-z8" style="max-width: 600px;">
+  <div class="d-flex justify-content-center gap-view">
+    <mat-toolbar style="max-width: 600px;">
+      <span>ALL TODOS</span>
+      <span class="example-spacer"></span>
+      <button mat-raised-button color="primary" (click)="create()">CREATE</button>
+    </mat-toolbar>
+  </div>
+  <div class="d-flex justify-content-center ">
+    <table mat-table [dataSource]="todos"  style="max-width: 600px;">
 
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
@@ -40,7 +47,7 @@
               <mat-icon>check</mat-icon>
               <span>Mark as done</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="delete(element)">
               <mat-icon>delete</mat-icon>
               <span>Delete</span>
             </button>
