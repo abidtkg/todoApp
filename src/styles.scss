@@ -9,3 +9,8 @@ $prefix: "mo-";
 
 // Then import Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+
+.custom-dialog-container .mat-dialog-container {
+    padding: 0px !important;
+}

@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ViewTodoComponent } from './pages/view-todo/view-todo.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     TodosComponent,
     CompletedtodosComponent,
     PendingtodosComponent,
-    CreateTodoComponent
+    CreateTodoComponent,
+    ViewTodoComponent
   ],
   imports: [
     CommonModule,
