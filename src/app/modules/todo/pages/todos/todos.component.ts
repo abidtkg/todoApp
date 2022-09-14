@@ -71,7 +71,7 @@ export class TodosComponent implements OnInit {
         this.Todo.delete(todo)
         .subscribe({
           next: (data) => {
-            this.Snackbar.open('Item Deleted!', 'Close');
+            this.Snackbar.open('Task Deleted!', 'Close');
             this.todos = this.Helper.removeOne(todo._id, this.todos);
           },
           error: (error) => {
@@ -89,4 +89,27 @@ export class TodosComponent implements OnInit {
       panelClass: 'custom-dialog-container'
     });
   }
+
+  updateStatus(todo: ITodo){
+    const dialogRef = this.Dialog.open(ConfirmationComponent, {
+      disableClose: true,
+      data: {message: 'Are you sure want to mark this as DONE?'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result == true){
+        this.Todo.updateStatus(true, todo._id)
+        .subscribe({
+          next: (data) => {
+            this.loadTodos();
+            this.Snackbar.open('Todo status updated!', 'Close');
+          },
+          error: (error) => {
+            this.Snackbar.open(error.error.error, 'Close');
+          }
+        });
+      }
+    });
+  }
+
 }

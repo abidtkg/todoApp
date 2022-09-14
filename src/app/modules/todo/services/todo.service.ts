@@ -39,6 +39,14 @@ export class TodoService {
     );
   }
 
+  updateStatus(completed: boolean, id: string): Observable<any> {
+    return this.http.put<any>(`${this.server}/todo/update/${id}`, {completed: completed})
+    .pipe(
+      retry(1),
+      catchError(this.errorHandeller)
+    );
+  }
+
   errorHandeller(error: HttpErrorResponse) {
     return throwError(() => error);
   }
