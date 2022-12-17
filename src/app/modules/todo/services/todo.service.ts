@@ -47,6 +47,14 @@ export class TodoService {
     );
   }
 
+  completedTodos(skip: number, limit: number): Observable<ITodo[]> {
+    return this.http.get<ITodo[]>(`${this.server}/todo/list/pending/${skip}/${limit}`)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandeller)
+    );
+  }
+
   errorHandeller(error: HttpErrorResponse) {
     return throwError(() => error);
   }
